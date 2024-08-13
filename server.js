@@ -6,7 +6,8 @@ require('dotenv').config();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
+const host = '0.0.0.0';
 
 
 
@@ -24,12 +25,10 @@ app.use('/person', personRoutes);
 app.use('/menu', menuRoutes);
 
 
-app.listen(PORT, () => {
-    console.log("listening to port 3000")
+
+app.listen(port, host, () => {
+  console.log(`Server is running on http://${host}:${port}`);
 });
-
-
-
 
 
 
